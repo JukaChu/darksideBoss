@@ -306,10 +306,10 @@ function rowSlides() {
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
                 loop: false,
-                slidesPerView: 4,
+                slidesPerView: 2,
                 slidesPerGroup: 1,
                 speed: 600,
-                spaceBetween: 30,
+                spaceBetween: 8,
                 navigation: {
                     nextEl: sldNext,
                     prevEl: sldPrev,
@@ -328,6 +328,29 @@ function rowSlides() {
                     delay: 4000,
                     pauseOnMouseEnter: true,
                 },
+                breakpoints: {
+                    // when window width is >= 320px
+
+                    // when window width is >= 480px
+                    600: {
+
+                        slidesPerView: 3,
+                        slidesPerGroup: 1,
+
+
+                    },
+
+                    1023: {
+                        slidesPerView: 4,
+                        slidesPerGroup: 1,
+                        spaceBetween: 20,
+                    },
+                    1100: {
+                        spaceBetween: 30,
+                        slidesPerView: 4,
+                        slidesPerGroup: 1,
+                    }
+                }
 
 
             });
