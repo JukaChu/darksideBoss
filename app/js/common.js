@@ -80,9 +80,11 @@ function checkScrollDir() {
             if (oldValue > newValue) {
                 // console.log('scroll top?')
                 document.querySelector('.header').classList.remove('is-fixed');
-            } else if (window.pageYOffset <= 20) {
-                document.querySelector('.header').classList.add('is-fixed');
-            } else {
+                if (window.pageYOffset >= 20) {
+                    document.querySelector('.header').classList.add('is-fixed');
+                }
+            }
+             else {
                 document.querySelector('.header').classList.add('is-fixed');
 
             }
@@ -396,3 +398,9 @@ function preventSingleCard() {
 
 preventSingleCard();
 
+$('input.phone-number').each(function () {
+
+    $(this).addClass('mask-phone-ua');
+
+});
+$(".mask-phone-ua").mask('+38(999)999-99-99');
