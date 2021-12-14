@@ -404,3 +404,62 @@ $('input.phone-number').each(function () {
 
 });
 $(".mask-phone-ua").mask('+38(999)999-99-99');
+
+
+let hiddenCarr = [...document.querySelectorAll('.show-hidden')];
+
+function openHideText() {
+    if (hiddenCarr.length) {
+        hiddenCarr.forEach((btn) => {
+            let hidden = btn.dataset.hidden;
+            let show = btn.dataset.show;
+            btn.addEventListener('click', () => {
+                if (btn.closest('.text').classList.contains('visible')) {
+                    btn.closest('.text').classList.remove('visible');
+                    btn.innerHTML = hidden;
+                } else {
+                    btn.closest('.text').classList.add('visible');
+                    btn.innerHTML = show;
+                }
+            })
+        })
+    }
+}
+openHideText();
+
+
+let carrMod = [...document.querySelectorAll('.mod--carr')];
+
+function openCarrMod() {
+    if (carrMod.length) {
+        carrMod.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.modal-window--carr').classList.add('active');
+                document.body.classList.add('no-scroll');
+            })
+        })
+    }
+}
+openCarrMod();
+
+let modalWindow = [...document.querySelectorAll('.modal-window')];
+
+function controlModal() {
+    if (modalWindow.length) {
+        modalWindow.forEach((mdl) => {
+            let back = mdl.querySelector('.modal-backplate');
+            let close = mdl.querySelector('.close-modal');
+
+            back.addEventListener('click', () => {
+                mdl.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            close.addEventListener('click', () => {
+                mdl.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        })
+    }
+}
+controlModal();
