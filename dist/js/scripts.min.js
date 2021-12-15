@@ -363,6 +363,58 @@ function rowSlides() {
 rowSlides();
 
 
+//product slider
+
+let cardPhotosBlock1 = [...document.querySelectorAll('.product-prev.js-slider')];
+
+function startPhotosSlider2() {
+    if (!cardPhotosBlock1.length) {
+
+    } else {
+        cardPhotosBlock1.forEach((blc) => {
+            let mainSlides = blc.querySelector('.product-slider__main');
+            let thumbsSlides = blc.querySelector('.product-slider__thumbs');
+            let pagin = blc.querySelector('.dots');
+            var swiperThumb = new Swiper(thumbsSlides, {
+                spaceBetween: 10,
+                slidesPerView: 5,
+                freeMode: false,
+                watchSlidesProgress: true,
+                direction: 'horizontal',
+                centeredSlides: false,
+                loop: false,
+                draggable: true,
+                breakpoints: {
+
+                }
+            });
+            var swiper2 = new Swiper(mainSlides, {
+                spaceBetween: 10,
+                slidesPerView: 1,
+                loop: true,
+                thumbs: {
+                    swiper: swiperThumb,
+                },
+                pagination: {
+                    el: pagin,
+                    type: 'bullets',
+                    bulletActiveClass: 'active',
+                    bulletClass: 'single-dot',
+                    bulletElement: 'div',
+                    clickable: true,
+                    currentClass: 'current',
+                    spaceBetween: 2,
+                },
+            });
+        })
+    }
+}
+
+startPhotosSlider2();
+
+//product slider
+
+
 //sliders
 
 $('.rating-stars').raty(
