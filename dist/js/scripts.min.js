@@ -362,6 +362,51 @@ function rowSlides() {
 
 rowSlides();
 
+let relSlider = [...document.querySelectorAll('.js-slider.cards-rel')];
+
+function relSlides() {
+    if (!relSlider.length) {
+
+    } else {
+        relSlider.forEach((sld) => {
+            let sldCont = sld.querySelector('.cards-rel__content');
+            let sldNext = sld.querySelector('.btn-slides--next');
+            let sldPrev = sld.querySelector('.btn-slides--prev');
+            let pagin = sld.querySelector('.dots');
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: false,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                speed: 600,
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+                pagination: {
+                    el: pagin,
+                    type: 'bullets',
+                    bulletActiveClass: 'active',
+                    bulletClass: 'single-dot',
+                    bulletElement: 'div',
+                    clickable: true,
+                    currentClass: 'current',
+                    spaceBetween: 2,
+                },
+                autoplay: {
+                    delay: 4000,
+                    pauseOnMouseEnter: true,
+                },
+
+
+            });
+        })
+    }
+}
+
+relSlides();
+
 
 //product slider
 
@@ -495,6 +540,21 @@ function openCarrMod() {
 }
 openCarrMod();
 
+let clickMod = [...document.querySelectorAll('.one-click')];
+
+function openClickMod() {
+    if (clickMod.length) {
+        clickMod.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.modal-window--click').classList.add('active');
+                document.body.classList.add('no-scroll');
+            })
+        })
+    }
+}
+openClickMod();
+
 let modalWindow = [...document.querySelectorAll('.modal-window')];
 
 function controlModal() {
@@ -515,3 +575,87 @@ function controlModal() {
     }
 }
 controlModal();
+
+
+let hiddenAbout = [...document.querySelectorAll('.unhide-text')];
+
+function openHideTextAbout() {
+    if (hiddenAbout.length) {
+        hiddenAbout.forEach((btn) => {
+            let hidden = btn.dataset.hidden;
+            let show = btn.dataset.show;
+            btn.addEventListener('click', () => {
+                if (btn.closest('.product-info__about').classList.contains('visible')) {
+                    btn.closest('.product-info__about').classList.remove('visible');
+                    btn.innerHTML = show;
+                } else {
+                    btn.closest('.product-info__about').classList.add('visible');
+                    btn.innerHTML = hidden;
+                }
+            })
+        })
+    }
+}
+openHideTextAbout();
+
+$(document).on('click', '.js-minus', function (e) {
+    var t=$(this).next().find('input').val();t>1&&$(this).next().find('input').val(+t-1);
+    return false;
+});
+$(document).on('click', '.js-plus', function (e) {
+
+    var t=$(this).prev().find('input').val();
+    $(this).prev().find('input').val(+t+1);
+    return false;
+});
+
+
+let prodCart = [...document.querySelectorAll('.product-info__footer')];
+
+function prodCartAdd() {
+    if (prodCart.length) {
+        prodCart.forEach((btn) => {
+            let cart = btn.querySelector('.add-cart');
+
+            cart.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                cart.classList.toggle('active');
+            })
+        })
+    }
+}
+
+prodCartAdd();
+
+
+let tabBtn = [...document.querySelectorAll('.tab-btn')];
+
+function changeTab() {
+    if (!tabBtn.length) {
+
+    } else {
+        tabBtn.forEach((btn, k) => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('active')) {
+
+                } else {
+                    tabBtn.forEach((btn2) => {
+                        btn2.classList.remove('active');
+                    });
+                    btn.classList.add('active');
+                    [...document.querySelectorAll('.item-tab')].forEach((tab, m) => {
+                        if (m === k) {
+                            tab.classList.add('active');
+                        } else {
+                            tab.classList.remove('active');
+
+                        }
+                    })
+                }
+            })
+        })
+    }
+}
+
+changeTab();
