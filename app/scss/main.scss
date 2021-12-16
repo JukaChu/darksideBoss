@@ -2493,6 +2493,7 @@ main {
   font-size: 12px;
   line-height: 165%;
   color: #888888;
+  position: relative;
 
   input, select {
     width: 100%;
@@ -2545,6 +2546,35 @@ main {
       }
     }
   }
+  .redact {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 120%;
+    color: #3B6D9A;
+    border-bottom: 1px dashed #3b6d9a;
+    position: absolute;
+    bottom: 38%;
+    right: 0;
+    transform: translate(0, 50%);
+    cursor: pointer;
+  }
+  &.edit {
+    .icon {
+      right: 100px;
+    }
+  }
+}
+input[type="date"] {
+  position: relative;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .textarea-cont {
@@ -6352,7 +6382,8 @@ input[type=number] {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 42px;
+  padding-bottom: 42px;
+  border-bottom: 1px solid #ECECEC;
 
 }
 .cabinet-title {
@@ -6365,6 +6396,7 @@ input[type=number] {
 }
 .cabinet-profile {
   width: 100%;
+  margin-top: 40px;
 
 }
 .cabinet-name {
@@ -6498,6 +6530,34 @@ input[type=number] {
       border: 1px solid #ED452A;
       transition: border 0.3s ease;
 
+    }
+  }
+}
+
+.cabinet-open {
+  width: 46px;
+  height: 43px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+
+
+  .img {
+    width: 28px;
+    height: 28px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../img/img-place.svg") no-repeat center / 10px,#F6F6F6;
+    border: 1px solid #ED452A;
+    box-sizing: border-box;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

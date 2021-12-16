@@ -700,3 +700,31 @@ function openPassword() {
     }
 }
 openPassword();
+
+
+let redactInput = [...document.querySelectorAll('.input-cont .redact')];
+
+function openRedact() {
+    if (redactInput.length) {
+        redactInput.forEach((icon) => {
+            icon.addEventListener('click', () => {
+                icon.closest('.input-cont').querySelector('input').disabled = false;
+
+            })
+        })
+    }
+}
+openRedact();
+
+let cabinetBtn = [...document.querySelectorAll('.cabinet-open')];
+
+function openCabinet() {
+        if (cabinetBtn.length) {
+            cabinetBtn.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    btn.closest('.cabinet-nav').classList.toggle('visible');
+                })
+            })
+        }
+}
+openCabinet();
