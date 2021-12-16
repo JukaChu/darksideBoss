@@ -67,28 +67,31 @@ function checkScrollDir() {
     // console.log(window.pageYOffset + ' pageoffset')
     if (window.innerWidth > 1050) {document.documentElement.scrollTop
         // console.log( + 'scrolled from top');
-        if (document.body.classList.contains('home')) {
-            let heightCat = document.querySelector('.header-bottom .header-catalog__nav').offsetHeight;
-            if (newValue > heightCat) {
-                document.querySelector('.header').classList.add('is-fixed');
-
-            } else {
-                document.querySelector('.header').classList.remove('is-fixed');
-
-            }
-        } else {
-            if (oldValue > newValue) {
-                // console.log('scroll top?')
-                document.querySelector('.header').classList.remove('is-fixed');
-                if (window.pageYOffset >= 20) {
+        if (document.body.querySelector('.header')) {
+            if (document.body.classList.contains('home')) {
+                let heightCat = document.querySelector('.header-bottom .header-catalog__nav').offsetHeight;
+                if (newValue > heightCat) {
                     document.querySelector('.header').classList.add('is-fixed');
+
+                } else {
+                    document.querySelector('.header').classList.remove('is-fixed');
+
+                }
+            } else {
+                if (oldValue > newValue) {
+                    // console.log('scroll top?')
+                    document.querySelector('.header').classList.remove('is-fixed');
+                    if (window.pageYOffset >= 20) {
+                        document.querySelector('.header').classList.add('is-fixed');
+                    }
+                }
+                else {
+                    document.querySelector('.header').classList.add('is-fixed');
+
                 }
             }
-             else {
-                document.querySelector('.header').classList.add('is-fixed');
-
-            }
         }
+
 
 
     } else {
@@ -177,6 +180,7 @@ function openMobileMenu() {
             btn.addEventListener('click', () => {
                 btn.classList.toggle('open');
                 document.querySelector('.header-mob').classList.toggle('opened');
+                document.body.classList.toggle('lock')
             })
         })
     }
@@ -395,7 +399,7 @@ function relSlides() {
                     spaceBetween: 2,
                 },
                 autoplay: {
-                    delay: 4000,
+                    delay: 5000,
                     pauseOnMouseEnter: true,
                 },
 
@@ -540,6 +544,21 @@ function openCarrMod() {
 }
 openCarrMod();
 
+let cartWin = [...document.querySelectorAll('.header-cart a')];
+
+function openCart() {
+    if (cartWin.length) {
+        cartWin.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.modal-window--cart').classList.add('active');
+                document.body.classList.add('no-scroll');
+            })
+        })
+    }
+}
+openCart();
+
 let clickMod = [...document.querySelectorAll('.one-click')];
 
 function openClickMod() {
@@ -659,3 +678,25 @@ function changeTab() {
 }
 
 changeTab();
+
+let passInput = [...document.querySelectorAll('.input-cont.password')];
+
+function openPassword() {
+    if (passInput.length) {
+        passInput.forEach((inp) => {
+            let icon = inp.querySelector('.icon');
+            icon.addEventListener('click', () => {
+                if (inp.classList.contains('visible')) {
+                    inp.classList.remove('visible');
+                    inp.querySelector('input').type = 'password';
+
+                } else {
+                    inp.classList.add('visible');
+                    inp.querySelector('input').type = 'text';
+                }
+
+            })
+        })
+    }
+}
+openPassword();
