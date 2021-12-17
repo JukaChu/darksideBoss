@@ -728,3 +728,30 @@ function openCabinet() {
         }
 }
 openCabinet();
+
+
+let orderDetail = [...document.querySelectorAll('.orders-item__line .item-show')];
+
+function openOrderDet() {
+    if (orderDetail.length) {
+        orderDetail.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.orders-item').classList.toggle('open');
+            })
+        })
+    }
+}
+openOrderDet();
+
+let revDetail = [...document.querySelectorAll('.review-line__head .item-show')];
+
+function openRevDet() {
+    if (revDetail.length) {
+        revDetail.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.review-line').classList.toggle('open');
+            })
+        })
+    }
+}
+openRevDet();
