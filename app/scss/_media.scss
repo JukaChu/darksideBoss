@@ -16,6 +16,31 @@
 }
 
 @media screen and (max-width: 1400px) {
+  .principles {
+    padding: 53px 0;
+  }
+  .principle-item p {
+
+  }
+  .principles__container .right {
+    row-gap: 27px;
+  }
+  .principle-item span {
+    padding-top: 30px;
+    font-size: 18px;
+    line-height: 1.2;
+    &::before {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+  }
+  .principles__container .left  {
+    padding-right: 7%;
+    p {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
   .orders-item__line .item {
     padding: 0 12px;
   }
@@ -164,6 +189,30 @@
   }
 }
 @media screen and (max-width: 1200px) {
+  .faq {
+    padding: 50px 0;
+  }
+  .faq-container .left p {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .faq-container .left .img {
+    width: 200px;
+    height: 200px;
+  }
+  .single-faq.open {
+    padding-bottom: 20px;
+  }
+  .single-faq .head {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .faq-container .left span {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
   .cabinet-orders__head .item, .orders-item__line .item {
     &:nth-child(2), &:nth-child(4), &:nth-child(5) {
       display: none;
@@ -460,6 +509,44 @@
 }
 
 @media screen and (max-width: 1050px) {
+  .review-modal {
+    margin-bottom: 15px;
+  }
+  .text-container {
+    padding: 20px 0 50px;
+    box-sizing: border-box;
+    h1 {
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    p, li {
+      font-size: 14px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    h2, h3, h4, h5, h6 {
+      margin-bottom: 16px;
+    }
+    li {
+      margin-bottom: 12px;
+    }
+  }
+  .page-404 {
+    margin-top: -10px;
+  }
+  .faq-container .left {
+    padding-right: 4%;
+  }
+  .principles__container .left {
+    padding-right: 4%;
+  }
+  .principles__container .left p {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
   .about-blockquote blockquote {
     padding: 30px 30px 50px 40%;
     background-size: 30%;
@@ -821,7 +908,7 @@
       font-size: 14px;
     }
   }
-  .shares.has-shadow, .seo-section.has-shadow, .checkout.has-shadow , .related-list.has-shadow {
+  .shares.has-shadow, .seo-section.has-shadow, .checkout.has-shadow , .related-list.has-shadow, .social-fol.has-shadow {
     padding-top: 54px;
 
     .blog-content {
@@ -1146,6 +1233,35 @@
   }
 }
 @media screen and (max-width: 992px) {
+  .faq-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .left {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 30px;
+      .img {
+        width: 125px;
+        height: 125px;
+        order: 1;
+        margin: 0;
+        margin-bottom: 13px;
+      }
+      p {
+        order: 2;
+      }
+      span {
+        order: 3;
+      }
+      .btn {
+        order: 4;
+      }
+    }
+    .right {
+      width: 100%;
+    }
+  }
 
   .item-tab .single-delivery {
     border-bottom: 1px solid #ECECEC;
@@ -1259,6 +1375,35 @@
 }
 
 @media screen and (max-width: 922px) {
+  .modal-thanks {
+    padding: 50px 0;
+  }
+  .modal-thanks p {
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 15px 0;
+  }
+  .modal-thanks span {
+    font-size: 14px;
+  }
+  .principles {
+    background: url("../img/choco-2.png") no-repeat left top / 100%, #181818;
+  }
+  .principles__container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .left {
+      width: 100%;
+      padding-bottom: 42%;
+
+
+    }
+    .right {
+      width: 100%;
+      margin-top: -2%;
+    }
+  }
   .catalog-list .single-card {
     width: calc(50% - (15px / 2));
     max-height: 344px;
@@ -1806,6 +1951,30 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .page-404__container .text p {
+    display: none;
+  }
+  .page-404__container {
+    .text {
+      align-items: center;
+      a {
+        margin-top: 30px;
+      }
+    }
+  }
+  .page-404 {
+    height: 241px;
+    padding-top: 18px;
+  }
+  .modal-window.modal-window--thanks .modal-container {
+    background: url("../img/choco-bg-2.png") no-repeat left top / cover, #fff;
+  }
+  .principle-item {
+    width: 100%;
+  }
+  .principles {
+    background-position: left 115px;
+  }
   .about-blockquote blockquote {
     padding: 40% 30px 50px 30px;
     background-size:calc(100% - 100px);

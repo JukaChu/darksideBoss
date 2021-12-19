@@ -544,6 +544,37 @@ function openCarrMod() {
 }
 openCarrMod();
 
+let coopMod = [...document.querySelectorAll('.mod--coop')];
+
+function openCoopMod() {
+    if (coopMod.length) {
+        coopMod.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.modal-window--coop').classList.add('active');
+                document.body.classList.add('no-scroll');
+            })
+        })
+    }
+}
+openCoopMod();
+
+
+let questMod = [...document.querySelectorAll('.mod--quest')];
+
+function openQuestMod() {
+    if (questMod.length) {
+        questMod.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.modal-window--quest').classList.add('active');
+                document.body.classList.add('no-scroll');
+            })
+        })
+    }
+}
+openQuestMod();
+
 let cartWin = [...document.querySelectorAll('.header-cart a')];
 
 function openCart() {
@@ -573,6 +604,21 @@ function openClickMod() {
     }
 }
 openClickMod();
+
+let revMod = [...document.querySelectorAll('.mod-comm')];
+
+function openRevMod() {
+    if (revMod.length) {
+        revMod.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.modal-window--comment').classList.add('active');
+                document.body.classList.add('no-scroll');
+            })
+        })
+    }
+}
+openRevMod();
 
 let modalWindow = [...document.querySelectorAll('.modal-window')];
 
@@ -755,3 +801,53 @@ function openRevDet() {
     }
 }
 openRevDet();
+
+let faqSingle = [...document.querySelectorAll('.single-faq .head')];
+
+function openFaq() {
+        if (faqSingle.length) {
+            faqSingle.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    btn.closest('.single-faq').classList.toggle('open');
+                })
+            })
+        }
+}
+openFaq();
+
+let startsRateModal = [...document.querySelectorAll('.rating-item .images .img')];
+
+function hoverStarsRate() {
+    if (!startsRateModal.length) {
+
+    } else {
+        startsRateModal.forEach((st, k) => {
+            let number = k + 1;
+            st.addEventListener('mouseover', () => {
+                st.classList.add('hover');
+                for (let i = 0; i < k; i++) {
+                    startsRateModal[i].classList.add('hover');
+                }
+            });
+            st.addEventListener('mouseout', () => {
+                st.classList.remove('hover');
+                for (let i = 0; i < k; i++) {
+                    startsRateModal[i].classList.remove('hover');
+                }
+            });
+            st.addEventListener('click', () => {
+                startsRateModal.forEach((st2) => {
+                    st2.classList.remove('clicked');
+                });
+                st.classList.add('clicked');
+                st.closest('.rating-item').querySelector('span strong').innerHTML = number;
+                for (let i = 0; i < k; i++) {
+                    startsRateModal[i].classList.add('clicked');
+                }
+            })
+        })
+    }
+}
+
+hoverStarsRate();
+
