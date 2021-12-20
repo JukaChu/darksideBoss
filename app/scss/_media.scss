@@ -1951,6 +1951,12 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .single-review {
+    width: 100%;
+  }
+  .prod-reviews__list {
+    row-gap: 20px;
+  }
   .page-404__container .text p {
     display: none;
   }

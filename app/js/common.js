@@ -851,3 +851,32 @@ function hoverStarsRate() {
 
 hoverStarsRate();
 
+
+let showRev = [...document.querySelectorAll('.show-rev')];
+
+function showRevAll() {
+    if (showRev.length) {
+        showRev.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.prod-reviews__content').querySelector('.prod-reviews__list').classList.toggle('showed')
+            })
+        })
+    }
+}
+
+showRevAll();
+
+let btnGoRevs = [...document.querySelectorAll('.product-info__tags .rate p')];
+function goToRevs() {
+    if (btnGoRevs.length) {
+        btnGoRevs.forEach((btn) => {
+            $(btn).click(function() {
+                $('.tab-btn--revs').click();
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(".tab-btn--revs").offset().top
+                }, 500);
+            });
+        })
+    }
+}
+goToRevs();
