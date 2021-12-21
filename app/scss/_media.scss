@@ -509,6 +509,14 @@
 }
 
 @media screen and (max-width: 1050px) {
+  .modal-added {
+    top: 63px;
+    .cart-line {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
   .review-modal {
     margin-bottom: 15px;
   }
@@ -1951,6 +1959,34 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .added-footer>p {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  .added-related__single {
+    padding: 5px;
+    .img {
+      height: 40px;
+    }
+    .text {
+      p {
+        font-size: 12px;
+        line-height: 1.1;
+      }
+      span {
+        font-size: 10px;
+        line-height: 1.1;
+      }
+    }
+  }
+  .added-content {
+    display: none;
+    .cart-line {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
   .single-review {
     width: 100%;
   }

@@ -143,7 +143,7 @@ function scrollFunction() {
 document.onload = () => {
     scrollFunction();
 };
-
+scrollFunction();
 
 let catalogMen = [...document.querySelectorAll('.header-catalog')];
 
@@ -463,6 +463,56 @@ startPhotosSlider2();
 
 //product slider
 
+//added cart slider
+
+let addedSlides = [...document.querySelectorAll('.added-slider')];
+
+function addedCartSlider() {
+    if (!addedSlides.length) {
+
+    } else {
+        addedSlides.forEach((sld) => {
+            let sldCont = sld.querySelector('.added-related');
+            let sldNext = sld.querySelector('.btn-slides--next');
+            let sldPrev = sld.querySelector('.btn-slides--prev');
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: false,
+                slidesPerView: 2,
+                slidesPerGroup: 1,
+                speed: 600,
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+
+                autoplay: {
+                    delay: 3800,
+                    pauseOnMouseEnter: true,
+                },
+                breakpoints: {
+                    // when window width is >= 320px
+
+                    // when window width is >= 480px
+
+                    600: {
+                        spaceBetween: 0,
+                        slidesPerView: 2,
+                        slidesPerGroup: 1,
+                    }
+                }
+
+
+            });
+        })
+    }
+}
+
+addedCartSlider();
+
+//added cart slider
+
 
 //sliders
 
@@ -480,7 +530,11 @@ let singleCard = [...document.querySelectorAll('.single-card')];
 
 function preventSingleCard() {
     if (singleCard.length) {
+        let timeoutHandle = setTimeout(() => {
+        }, 5000);
         singleCard.forEach((btn) => {
+
+
             let fav = btn.querySelector('.fav');
             let cart = btn.querySelector('.add-cart');
             fav.addEventListener('click', (e) => {
@@ -492,6 +546,21 @@ function preventSingleCard() {
                 e.stopPropagation();
                 e.preventDefault();
                 cart.classList.toggle('active');
+                if (document.querySelector('.modal-added')) {
+                    document.querySelector('.modal-added').classList.add('active');
+                    if (document.querySelector('.modal-added').classList.contains('active')) {
+                        clearTimeout(timeoutHandle);
+                        timeoutHandle = setTimeout(() => {
+                            document.querySelector('.modal-added').classList.remove('active');
+                        }, 5000);
+                    } else {
+                        timeoutHandle = setTimeout(() => {
+                            document.querySelector('.modal-added').classList.remove('active');
+                        }, 5000);
+                    }
+
+                }
+
             })
         })
     }
